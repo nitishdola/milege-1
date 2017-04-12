@@ -1,0 +1,66 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <h2>Milege Calculator</h2>
+     <form name="MilForm">
+    <ul class="list">
+      <ion-radio ng-model="choice" ng-value="'A'" ng-click="selectVehicle('cars')">Car</ion-radio>
+
+      <ion-radio ng-model="choice" ng-value="'A'" ng-click="selectVehicle('bikes')">Bike</ion-radio>
+    </ul>
+
+    <div class="list" ng-show="cars">
+      <label class = "item item-input item-select item-light">
+        <div class = "input-label">
+           Select Car
+        </div>
+        <select ng-model="carbrand" ng-change="getCarMilege(carbrand)">
+        <option ng-repeat="x in CarList" value="{{x.Id}}">{{x.Name}}</option>
+        
+        </select>
+     </label>
+    </div>
+
+    <div class="list" ng-show="bikes">
+      <label class = "item item-input item-select item-light">
+        <div class = "input-label">
+           Select Bike
+        </div>
+      
+        <select ng-model="bikebrand" ng-change="getBikeMilege(bikebrand)">
+          <option ng-repeat="x in BikeList" value="{{x.Id}}">{{x.Name}}</option>
+        </select>
+     </label>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+      <input type="text" ng-model="milege" placeholder="Milege">
+     </label>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+      <input type="text" ng-model="distance" placeholder="Distance in km">
+     </label>
+    </div>
+
+    <button class="button button-block button-positive" type="button" ng-click="calculateOilReq(milege,distance)">
+       Calculate Oil Required
+    </button>
+
+    </form>
+  </ion-content>
+</ion-view>
+
+<script id = "my-modal.html" type = "text/ng-template">
+   <ion-modal-view>
+      <ion-header-bar>
+         <h1 class = "title">Modal Title</h1>
+      </ion-header-bar>
+    
+      <ion-content>
+         <button class = "button icon icon-left ion-ios-close-outline"
+            ng-click = "closeModal()">Close Modal</button>
+      </ion-content>
+   </ion-modal-view>
+</script>
