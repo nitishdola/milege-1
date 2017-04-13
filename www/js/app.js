@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.controller('VehicleCtrl', function($scope) {
+.controller('VehicleCtrl', function($scope,$http) {
 
 
   $scope.CarList = [
@@ -50,6 +50,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $scope.cars = false;
   $scope.bikes = false;
   
+
+  
   $scope.selectVehicle = function(vehicle_type) {
     if(vehicle_type == 'cars') {
       $scope.cars = true;
@@ -64,12 +66,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   }
 
   $scope.getCarMilege = function(car_id) {
-    rest_milege = 
-    {
-        "milege": 18
-    };
-    console.log(rest_milege.milege);
-    $scope.milege = rest_milege.milege;
+    var url = '';
+    var params = '';
+    url += 'http://192.168.0.156/milegecalc/public/rest/get-milege';
+    params = {'vehicle_id' : car_id};
+    $http.get(url,{params:params}).success(function(data) {
+      window.content = data;
+      $scope.milege = data;
+    });
   }
 
   $scope.getBikeMilege = function(bike_id) {
