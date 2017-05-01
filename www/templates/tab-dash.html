@@ -1,6 +1,6 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
-    <h2>Milege Calculator</h2>
+    <h2>Petrol/Milege Calculator</h2>
      <form name="MilForm">
     <ul class="list">
       <ion-radio ng-model="choice" ng-value="'A'" ng-click="selectVehicle('cars')">Car</ion-radio>
@@ -19,6 +19,8 @@
         </select>
      </label>
     </div>
+    
+
 
     <div class="list" ng-show="bikes">
       <label class = "item item-input item-select item-light">
@@ -40,7 +42,19 @@
 
     <div class="list">
       <label class="item item-input">
-      <input type="text" ng-model="distance" placeholder="Distance in km">
+      <input type="text" id="tripSource" ng-click="selectSource()" placeholder="Source">
+     </label>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+      <input type="text" id="tripDestination" ng-click="selectDestination()" placeholder="Destination">
+     </label>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+      <input type="text" id="dvDistance"  ng-model="distance" placeholder="Distance in km">
      </label>
     </div>
 
