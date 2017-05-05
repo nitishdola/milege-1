@@ -21,6 +21,9 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('OilresultCtrl', function($state, $scope, $stateParams) {
+  $scope.oil = $stateParams.oil;
+})
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
