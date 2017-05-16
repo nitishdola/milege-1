@@ -37,9 +37,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   
   $scope.selectSource = function() {
     var input = document.getElementById('tripSource');
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var autocomplete = new google.maps.places.Autocomplete(input); console.log(autocomplete); alert(autocomplete);
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
-        var place = autocomplete.getPlace(); alert(place);
+        var place = autocomplete.getPlace(); 
     });
   }
 
