@@ -68,15 +68,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   }
 
   $scope.getCarMilege = function(car_id) { //alert(car_id);
-    var url = '';
-    var params = '';
-    url += 'http://139.59.6.74/milegecalc/public/index.php/rest/get-milege';
-    //url += 'http://localhost:8080/milegecalc/public/rest/get-milege';
-    params = {'vehicle_id' : car_id};
-    $http.get(url,{params:params}).success(function(data) {
-      window.content = data;
-      $scope.milege = data;
-    });
+    // var url = '';
+    // var params = '';
+    // url += 'http://139.59.6.74/milegecalc/public/index.php/rest/get-milege';
+    // //url += 'http://localhost:8080/milegecalc/public/rest/get-milege';
+    // params = {'vehicle_id' : car_id};
+    // $http.get(url,{params:params}).success(function(data) {
+    //   window.content = data;
+    //   $scope.milege = data;
+    // });
+
+    $scope.milege = '25.25';
   }
 
   $scope.getBikeMilege = function(bike_id) {
