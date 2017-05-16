@@ -36,10 +36,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   
   $scope.selectSource = function() {
-    var input = document.getElementById('tripSource'); alert(input);
+    var input = document.getElementById('tripSource');
     var autocomplete = new google.maps.places.Autocomplete(input);
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
-        var place = autocomplete.getPlace();
+        var place = autocomplete.getPlace(); alert(place);
     });
   }
 
